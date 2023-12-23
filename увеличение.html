@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Increase Even Numbers</title>
+</head>
+<body>
+  <script>
+    const size = parseInt(prompt("Enter the size of the array:"));
+
+    const numbers = [];
+
+    for (let i = 0; i < size; i++) {
+      const num = parseInt(prompt(`Enter element at index ${i}:`));
+      numbers.push(num);
+    }
+
+    let firstEven = null;
+    for (let i = 0; i < size; i++) {
+      if (numbers[i] % 2 === 0) {
+        firstEven = numbers[i];
+        break;
+      }
+    }
+
+    if (firstEven !== null) {
+      for (let i = 0; i < size; i++) {
+        if (numbers[i] % 2 === 0) {
+          numbers[i] += firstEven;
+        }
+      }
+
+      document.write("<p>Updated array:</p>");
+      for (let i = 0; i < size; i++) {
+        document.write(`Index ${i}: ${numbers[i]}<br>`);
+      }
+    } else {
+      document.write("<p>No even numbers found. The array remains unchanged.</p>");
+    }
+  </script>
+</body>
+</html>
